@@ -14,7 +14,7 @@ module ACH::Records
     field :credit_total, Integer, lambda { |f| sprintf('%012d', f)}
     
     field :company_identification, String,
-        lambda {|f| '1' + f}, nil, /\A\d{9}\Z/,
+        lambda {|f| f}, nil, /\A\d{9,10}\Z/,
         'Company Tax ID'
         
     field :message_authentication_code, String,
